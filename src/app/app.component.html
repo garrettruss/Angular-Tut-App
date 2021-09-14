@@ -1,0 +1,9 @@
+<h1>Hello {{ title | truncate }}</h1>
+<h1>Hello {{ jsonValue | json }}</h1>
+<h1>Hello {{ newDate | date:'M:d:H'  }}</h1>
+
+
+
+
+<button (click)='handleEvent();'>Click Me</button>
+<input placeholder="hello" [(ngModel)]="title"  />
