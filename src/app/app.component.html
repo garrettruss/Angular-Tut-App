@@ -1,9 +1,15 @@
-<h1>Hello {{ title | truncate }}</h1>
+<input placeholder="user" [(ngModel)]="userObject.name">
+<input placeholder="user" [(ngModel)]="userObject.age">
+<input placeholder="user" [(ngModel)]="userObject.id">
 
-<h1>Hello {{ newDate | date:'M:d:H'  }}</h1>
 
+<ng-container *ngIf="showUser">
+  <app-user [user]="userObject" (userCustomEvent)="handleEvent($event)"></app-user>
+</ng-container>
+<!--child selector, target (input property from child), source (property from parent), target (output event from child), source (method from parent)-->
 
-<!--<button (click)='handleEvent();'>Click Me</button>-->
-<input placeholder="hello" [(ngModel)]="title"  />>
-
-<app-user [user] = 'userObject' (userEvent)="handleEvent($event)" ></app-user>
+<ul *ngFor="let item of posts | async ">
+  <li>{{item.id}}</li>
+  <li>{{item.title}}</li>
+  <li>{{item.body}}</li>
+</ul>

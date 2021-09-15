@@ -4,6 +4,7 @@ interface UserInterface {
   name: string;
   age: string;
   id: number;
+  isColored: boolean;
 }
 
 @Component({
@@ -15,18 +16,22 @@ export class UserComponent implements OnInit {
 
   @Input() user: UserInterface;
 
-  @Output() userEvent: EventEmitter<UserInterface>;
+  @Output() userCustomEvent: EventEmitter<UserInterface>;
+
+  isColored: boolean = false;
 
   constructor() { 
-    this.userEvent = new EventEmitter<UserInterface>();
+    this.userCustomEvent = new EventEmitter<UserInterface>();
     this.user = {} as UserInterface;
+
   }
 
   ngOnInit(): void {
+    this.isColored = this.user.isColored;
   }
 
   sendUserEvent(): void {
-    this.userEvent.emit(this.user);
+    this.userCustomEvent.emit(this.user);
   }
 
 }
