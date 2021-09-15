@@ -3,9 +3,7 @@
 <h1>Hello {{ newDate | date:'M:d:H'  }}</h1>
 
 
+<!--<button (click)='handleEvent();'>Click Me</button>-->
+<input placeholder="hello" [(ngModel)]="title"  />>
 
-
-<button (click)='handleEvent();'>Click Me</button>
-<input placeholder="hello" [(ngModel)]="title"  />
-
-<app-user [user] = 'userObject' ></app-user>
+<app-user [user] = 'userObject' (userEvent)="handleEvent($event)" ></app-user>

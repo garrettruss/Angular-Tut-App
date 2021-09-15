@@ -21,9 +21,7 @@ export class AppComponent {
 
   }
 
-  handleEvent() {
-    this.httpService.getRequest('https://jsonplaceholder.typicode.com/todos/1')
-    .subscribe((response) => { console.log(response)}
-    );
+  handleEvent(event: any) {
+    console.log(event);
   }
 } 
