@@ -8,10 +8,12 @@ import { HttpService } from './http.service';
 })
 export class AppComponent {
   title = 'angular tutorial How are you doing today';
-  jsonValue = {
-    a: 'hello',
-    b: 'world'
-  }
+
+  userObject = {
+    name: 'Johnny',
+    age: '32',
+    id: 0,
+   }
 
   newDate = new Date();
 
@@ -20,6 +22,8 @@ export class AppComponent {
   }
 
   handleEvent() {
-    this.httpService.getRequest('https://jsonplaceholder.typicode.com/todos/1');
+    this.httpService.getRequest('https://jsonplaceholder.typicode.com/todos/1')
+    .subscribe((response) => { console.log(response)}
+    );
   }
-}
+} 
